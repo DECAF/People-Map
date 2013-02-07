@@ -168,7 +168,7 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   left    : 0;
   width   : 100%;
   z-index : 1;
-  @include transform-origin(0, 0);
+  @include transform-origin(right, 0);
 }
 
 #app.toolbar-visible > .map {

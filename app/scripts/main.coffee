@@ -30,7 +30,7 @@ require ['app'], (app) ->
                   
 
   paint = ()->
-    console.log 'painting'
+    #console.log 'painting'
     if $app.hasClass 'toolbar-visible'
       leftOffset = $app.find('header > div').outerWidth()
       fullWidth = $app.width()
@@ -38,11 +38,12 @@ require ['app'], (app) ->
       scaleX = availableWidth / fullWidth
 
       $map.css
-        transform : "translate3d(#{leftOffset}px, 0, 0) scaleX(#{scaleX})"
+        #transform : "translate3d(#{leftOffset}px, 0, 0) scale3d(#{scaleX}, 1, 1)"
+        transform : "scale3d(#{scaleX}, 1, 1)"
 
-      console.log("translate3d(#{leftOffset}px, 0) scaleX(#{scaleX})")
+      #console.log("translate3d(#{leftOffset}px, 0) scaleX(#{scaleX})")
     else
       $map.css
-        transform : 'initial'
+        transform : 'none'
 
 #$('._toggle-menu:first').click()
