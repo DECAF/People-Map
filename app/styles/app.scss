@@ -4,6 +4,7 @@
 
 $toolbar-height : 30px;
 $toolbar-width : 200px;
+$zoomCubeDuration: 400ms; 
 $navbar-transition-duration : 350ms;
 $navbar-show-delay : $navbar-transition-duration * 0.75;
 $navbar-hide-delay : $navbar-transition-duration / 1.5;
@@ -14,6 +15,7 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   left     : 0;
   right    : 0;
   bottom   : 0;
+  @include transition(all $zoomCubeDuration);
 }
 
 #app > header,
@@ -179,7 +181,7 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   height: 100%;
   width : 100%;
 }
-#app.toolbar-visible > .map::before {
+#app > .map::before {
   content    : "";
   display    : block;
   width      : 4px;
@@ -187,7 +189,7 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   height     : 100%;
   position   : absolute;
   top        : 0;
-  left       : 0;
+  left       : -4px;
   z-index : 2;
 }
 
