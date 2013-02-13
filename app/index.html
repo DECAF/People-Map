@@ -23,40 +23,41 @@
             src="https://maps.google.com/maps/api/js?sensor=true"></script>
 </head>
 <body>
-<div id="app">
-    <div id="cube" class="xshow-back">
-        <figure class="front">vorne</figure>
-        <figure class="back">hinten</figure>
-        <figure class="right"></figure>
-        <figure class="left"></figure>
-        <figure class="top"></figure>
-        <figure class="bottom"></figure>
-    </div>
+<div id="app" class="cubist-stage">
+    <section class="page map-view">
+        <header>
+            <div>
+                <a href="#" class="close-menu-button _toggle-menu">
+                    <span data-icon="&#xe003;"></span>
     
-    <header>
-        <div>
-            <a href="#" class="close-menu-button _toggle-menu">
-                <span data-icon="&#xe003;"></span>
-
-                <h1 class="logo">People Map</h1>
+                    <h1 class="logo">People Map</h1>
+                </a>
+                <nav>
+                    <article>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In massa felis, ultrices vel ullamcorper
+                            sed, ornare a leo.</p>
+                    </article>
+                    <ul>
+                        <li><input type="text" placeholder="search location"></li>
+                        <li><a href="#" class="_open-editor"><span data-icon="&#xe000;"></span> add me</a></li>
+                    </ul>
+    
+                </nav>
+                <footer>&copy; 2013 <a href="https://github.com/DECAF-/People-Map">DECAF</a></footer>
+            </div>
+            <a class="show-menu-button _toggle-menu" href="#"><span data-icon="&#xe001"></span></a>
+        </header>
+        <section class="map">
+            <div id="map-container"></div>
+        </section>
+    </section>
+    <section class="page config-view">
+        <header>
+            <a href="#" class="_close-editor">
+                <span data-icon="&#xe003;"></span> 
+                <h2>Edit your location</h2>
             </a>
-            <nav>
-                <article>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In massa felis, ultrices vel ullamcorper
-                        sed, ornare a leo.</p>
-                </article>
-                <ul>
-                    <li><input type="text" placeholder="search location"></li>
-                    <li><a href="#"><span data-icon="&#xe000;"></span> add me</a></li>
-                </ul>
-
-            </nav>
-            <footer>&copy; 2013 <a href="https://github.com/DECAF-/People-Map">DECAF</a></footer>
-        </div>
-        <a class="show-menu-button _toggle-menu" href="#"><span data-icon="&#xe001"></span></a>
-    </header>
-    <section class="map">
-        <div id="map-container"></div>
+        </header>
     </section>
 </div>
 
@@ -68,8 +69,8 @@
 
 <!-- Add your site or application content here -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>-->
 
 
 <!-- build:js scripts/amd-app.js -->

@@ -1,10 +1,12 @@
-@import "colors";
 @import "ceaser-easing";
 @import "compass/css3";
+@import "helpers";
+@import "colors";
+@import "icons.css";
 
 $toolbar-height : 30px;
 $toolbar-width : 200px;
-$zoomCubeDuration: 400ms; 
+$zoomCubeDuration : 400ms;
 $navbar-transition-duration : 350ms;
 $navbar-show-delay : $navbar-transition-duration * 0.75;
 $navbar-hide-delay : $navbar-transition-duration / 1.5;
@@ -15,18 +17,25 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   left     : 0;
   right    : 0;
   bottom   : 0;
-  @include transition(all $zoomCubeDuration);
+  //@include transition(all $zoomCubeDuration);
 }
 
-#app > header,
-#app > .map {
+#app .page {
+  background : white url(/images/low_contrast_linen.png) repeat center;
+  @include image-2x("/images/low_contrast_linen@2x.png", 46px, 29px);
+  width      : 100%;
+  height     : 100%;
+}
+
+#app .map-view >  header,
+#app .map-view >  .map {
   position : absolute;
   left     : 0;
   top      : 0;
   width    : 100%;
 }
 
-#app > header {
+#app .map-view >  header {
   height         : 0;
   padding        : 0 0;
   height         : 100%;
@@ -36,11 +45,11 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   width          : 0;
 }
 
-#app.toolbar-visible > header {
+#app.toolbar-visible .map-view > header {
   width : $toolbar-width;
 }
 
-#app > header > div {
+#app .map-view >  header > div {
   visibility : hidden;
   width      : $toolbar-width;
   height     : 100%;
@@ -48,12 +57,12 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   position   : relative;
 }
 
-#app.toolbar-visible > header > div {
+#app.toolbar-visible .map-view > header > div {
   visibility : visible;
   left       : 0;
 }
 
-#app > header nav {
+#app .map-view >  header nav {
   //  display  : none;
   position    : absolute;
   top         : 40px;
@@ -62,20 +71,20 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   left        : - $toolbar-width;
 }
 
-#app.toolbar-visible > header nav {
+#app.toolbar-visible .map-view > header nav {
   left : 0;
 }
 
-#app > header nav ul li {
+#app .map-view >  header nav ul li {
   display : block;
   padding : 0 20px 0 10px;
 }
 
-#app > header nav ul li + li {
+#app .map-view >  header nav ul li + li {
   margin-top : 15px;
 }
 
-#app > header nav ul li a {
+#app .map-view >  header nav ul li a {
   color           : $blue;
   background      : rgba($yellow, 0);
   display         : block;
@@ -87,23 +96,23 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   position        : relative;
 }
 
-#app.toolbar-visible > header nav ul li a {
+#app.toolbar-visible .map-view > header nav ul li a {
   left : 0;
 }
 
-#app > header nav ul li a:hover {
+#app .map-view >  header nav ul li a:hover {
   color      : $dark-blue;
   background : rgba($yellow, 1);
 }
 
-#app > header nav ul li a span[data-icon]::before {
+#app .map-view >  header nav ul li a span[data-icon]::before {
   font-size : 40px;
 }
 
-#app > header nav ul li a:hover span[data-icon]::before {
+#app .map-view >  header nav ul li a:hover span[data-icon]::before {
 }
 
-#app > header nav ul li input[type=text] {
+#app .map-view >  header nav ul li input[type=text] {
   color       : $blue;
   font-weight : bold;
   border      : 4px solid $yellow;
@@ -114,34 +123,34 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   padding     : 2px 4px;
 }
 
-#app > header nav ul li input::-webkit-input-placeholder {
+#app .map-view >  header nav ul li input::-webkit-input-placeholder {
   color : rgba($blue, 0.5);
 }
 
-#app > header nav ul li input:-moz-placeholder {
+#app .map-view >  header nav ul li input:-moz-placeholder {
   color : rgba($blue, 0.5);
 }
 
-#app > header nav ul li input::-moz-placeholder {
+#app .map-view >  header nav ul li input::-moz-placeholder {
   color : rgba($blue, 0.5);
 }
 
-#app > header nav ul li input:-ms-input-placeholder {
+#app .map-view >  header nav ul li input:-ms-input-placeholder {
   color : rgba($blue, 0.5);
 }
 
-#app > header nav article {
+#app .map-view >  header nav article {
   padding : 0 20px 20px 10px;
 }
 
-#app > header nav article p {
+#app .map-view >  header nav article p {
   font-size   : 12px;
   line-height : 14px;
   color       : $grey;
   font-weight : 300;
 }
 
-#app > header footer {
+#app .map-view >  header footer {
   position    : absolute;
   bottom      : 0;
   left        : 10px;
@@ -152,36 +161,39 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   text-align  : left;
 }
 
-#app > header footer a {
+#app .map-view >  header footer a {
   text-decoration : none;
   font-weight     : 400;
   color           : adjust-lightness($grey, -20);
 }
 
-#app > header footer a:hover {
+#app .map-view >  header footer a:hover {
   text-decoration : underline;
 }
 
-#app > .map {
+#app .map-view >  .map {
   //background : transparent url(/images/mapdummy.jpg) no-repeat left top;
   //@include background-size(cover);
-  top     : 0;
-  bottom  : 0;
-  left    : 0;
-  width   : 100%;
-  z-index : 1;
+  bottom       : 0;
+  left         : 0;
+  padding-left : 0;
+  top          : 0;
   @include transform-origin(right, 0);
+  z-index      : 1;
+  width        : 100%;
 }
 
-#app.toolbar-visible > .map {
+#app.toolbar-visible .map-view > .map {
   @include box-shadow(0px 0 25px 5px rgba($black, 1));
+  padding-left : $toolbar-width;
 }
 
-#app > .map > div {
-  height: 100%;
-  width : 100%;
+#app .map-view >  .map > div {
+  height : 100%;
+  width  : 100%;
 }
-#app > .map::before {
+
+#app .map-view >  .map::before {
   content    : "";
   display    : block;
   width      : 4px;
@@ -190,7 +202,7 @@ $navbar-hide-delay : $navbar-transition-duration / 1.5;
   position   : absolute;
   top        : 0;
   left       : -4px;
-  z-index : 2;
+  z-index    : 2;
 }
 
 h1.logo {
@@ -255,14 +267,14 @@ h1.logo {
 
 // Toolbar transitions
 
-#app > header,
-#app > header > div,
-#app > .map,
+#app .map-view >  header,
+#app .map-view >  header > div,
+#app .map-view >  .map,
 #app .show-menu-button {
   @include transition(all $navbar-transition-duration);
 }
 
-#app > header nav {
+#app .map-view >  header nav {
   @include transition(all $navbar-transition-duration + 300);
 }
 
@@ -275,22 +287,22 @@ h1.logo {
   @include transition-timing-function(ceaser($easeInQuint));
 }
 
-#app > header,
-#app > header > div,
-#app > .map,
-#app > header nav {
+#app .map-view >  header,
+#app .map-view >  header > div,
+#app .map-view >  .map,
+#app .map-view >  header nav {
   @include transition-timing-function(ceaser($easeInSine));
 }
 
 // HIDE TOOLBAR
 
 // DELAYS
-#app > header,
-#app > .map {
+#app .map-view >  header,
+#app .map-view >  .map {
   @include transition-delay($navbar-show-delay);
 }
 
-#app > header > div,
+#app .map-view >  header > div,
 #app.toolbar-visible > header nav {
   @include transition-delay($navbar-show-delay / 2);
 }
