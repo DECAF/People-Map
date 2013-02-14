@@ -1,19 +1,145 @@
+@import "compass/css3";
 @import 'colors';
+@import 'helpers';
 
-.config-view header {
+$editor-font-size : 24px;
+$json-indent : 30px;
+
+.editor-view header {
   background : rgba($yellow, 1);
-  padding: 2px 10px 4px;
-  font-size: 30px;
+  padding    : 2px 10px 4px;
+  font-size  : 30px;
 
 }
-.config-view header a {
-  color      : $dark-blue;
-  display: block;
-  text-decoration: none;
+
+.editor-view header a {
+  color           : $dark-blue;
+  display         : block;
+  text-decoration : none;
 }
-.config-view header span[data-icon] {
+
+.editor-view header span[data-icon] {
   font-size : 24px;
 }
-.config-view header h2 {
-  display: inline-block;
+
+.editor-view header h2 {
+  display : inline-block;
+}
+
+.editor-view .editor {
+  text-align  : center;
+  padding-top : 40px;
+}
+
+.editor-view .editor .edit-json {
+  background : white url(/images/black_paper.png) repeat center;
+  @include image-2x("/images/black_paper@2x.png", 400px, 400px);
+  border     : 6px solid $dark-blue;
+  //@include box-shadow(0 1px 0 0 rgba($white, 0.8));
+  @include box-shadow(0 0px 1px 1px rgba($white, 0.3), inset 2px 2px 10px 1px  rgba($black, 0.9));
+  display    : inline-block;
+  font-size  : $editor-font-size;
+  text-align : left;
+  padding    : 30px 40px;
+}
+
+.editor-view .editor .edit-json ul {
+  color        : adjust-lightness($grey, -20);
+  font-family  : 'Source Code Pro', sans-serif;
+  font-weight  : 500;
+  padding-left : $json-indent;
+}
+
+.json-bracket {
+  color       : $yellow;
+  display     : block;
+  font-weight : bold;
+  left        : -$json-indent;
+  position    : relative;
+}
+
+.editor-view .editor .edit-json ul::before {
+  @extend .json-bracket;
+  content : "{";
+}
+
+.editor-view .editor .edit-json ul::after {
+  @extend .json-bracket;
+  content : "}";
+}
+
+.editor-view .editor .edit-json ul li {
+  line-height: 30px;
+}
+
+.json-property {
+  
+}
+
+.editor-view .editor .edit-json ul li .key {
+    float: left;
+}
+
+.editor-view .editor .edit-json ul li .key::after {
+  display : inline;
+  content : ":";
+  color   : $yellow;
+  padding: 0 10px;
+}
+
+.editor-view .editor .edit-json ul li .value {
+  display: block;
+  color  : $blue;
+  overflow: hidden;
+}
+
+.editor-view .editor .edit-json ul li .value::after {
+  content: ', ';
+  color: $yellow;
+  text-decoration : none;
+}
+
+.editor-view .editor .edit-json ul li .value input {
+  background      : none;
+  border          : none;
+  font-size       : $editor-font-size;
+  
+}
+
+.editor-view .editor .edit-json ul li .value .editable {
+  font-weight     : 700;
+  color           : $blue;
+  outline         : none;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+.editor-view .editor .edit-json ul li .value .editable:hover,
+.editor-view .editor .edit-json ul li .value .editable:hover {
+  
+}
+@mixin editor-placeholder {
+  color : adjust-lightness($blue, 25);
+  font-weight     : 500;
+  text-decoration : underline;
+}
+
+.editor-view .editor .edit-json ul li .value input::-webkit-input-placeholder {
+  @include editor-placeholder;
+}
+
+.editor-view .editor .edit-json ul li .value input:-moz-placeholder {
+  /* Firefox 18- */
+  @include editor-placeholder;
+
+}
+
+.editor-view .editor .edit-json ul li .value input::-moz-placeholder {
+  /* Firefox 19+ */
+  @include editor-placeholder;
+}
+
+.editor-view .editor .edit-json ul li .value input:-ms-input-placeholder {
+  @include editor-placeholder;
 }

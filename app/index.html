@@ -18,6 +18,7 @@
 
 
     <link rel="stylesheet" href="styles/main.css">
+
     <script src="scripts/vendor/modernizr.min.js"></script>
     <script type="text/javascript"
             src="https://maps.google.com/maps/api/js?sensor=true"></script>
@@ -29,19 +30,20 @@
             <div>
                 <a href="#" class="close-menu-button _toggle-menu">
                     <span data-icon="&#xe003;"></span>
-    
+
                     <h1 class="logo">People Map</h1>
                 </a>
                 <nav>
                     <article>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In massa felis, ultrices vel ullamcorper
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In massa felis, ultrices vel
+                            ullamcorper
                             sed, ornare a leo.</p>
                     </article>
                     <ul>
                         <li><input type="text" placeholder="search location"></li>
                         <li><a href="#" class="_open-editor"><span data-icon="&#xe000;"></span> add me</a></li>
                     </ul>
-    
+
                 </nav>
                 <footer>&copy; 2013 <a href="https://github.com/DECAF-/People-Map">DECAF</a></footer>
             </div>
@@ -51,13 +53,52 @@
             <div id="map-container"></div>
         </section>
     </section>
-    <section class="page config-view">
-        <header>
-            <a href="#" class="_close-editor">
-                <span data-icon="&#xe003;"></span> 
-                <h2>Edit your location</h2>
-            </a>
-        </header>
+    <section class="page editor-view">
+        <div>
+            <header>
+                <a href="#" class="_close-editor">
+                    <span data-icon="&#xe003;"></span>
+
+                    <h2>Edit your location</h2>
+                </a>
+            </header>
+            <section class="editor">
+                <div class="edit-json">
+                    <ul>
+                        <li>
+                            <span class="key">name</span>
+                            <span class="value"><span class="editable" contenteditable="true">Dein Name</span></span>
+                        </li>
+                        <li>
+                            <span class="key">statement</span>
+                            <span class="value"><span class="editable" contenteditable="true">Was hast du zu sagen?</span></span>
+                        </li>
+                    </ul>
+                    <pre>
+    {
+      "name":"DECAF",
+      "statement":"Lorem Ipsum",
+      "locations": [
+        {
+          "lat":012,
+          "lng":123,
+          "description": "in Berlin"
+        },
+        {
+          "lat":012,
+          "lng":123,
+          "description": "in Langenberg"
+        }
+      ],
+      "url":"http://foobar.com",
+      "plugins": {
+         "twitter":"@schuer" 
+       }
+    }
+                    </pre>
+                </div>
+            </section>
+        </div>
     </section>
 </div>
 

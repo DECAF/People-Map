@@ -48,5 +48,5 @@ require ['Cubist'], (Cubist) ->
 
 
 
-  #cube.goto 1
+  cube.goto 1
 
