@@ -1,0 +1,20 @@
+{
+    "name":"DECAF",
+    "statement":"Lorem Ipsum",
+    "locations": [
+        {
+            "lat":123,
+            "lng":123,
+            "description": "in Berlin"
+        },
+        {
+            "lat":123,
+            "lng":123,
+            "description": "in Langenberg"
+        }
+    ],
+    "url":"http://foobar.com",
+    "plugins": {
+        "twitter":"@schuer"
+    }
+}

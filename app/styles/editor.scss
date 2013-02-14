@@ -9,7 +9,7 @@ $json-indent : 30px;
   background : rgba($yellow, 1);
   padding    : 2px 10px 4px;
   font-size  : 30px;
-
+  height: 37px;
 }
 
 .editor-view header a {
@@ -27,17 +27,16 @@ $json-indent : 30px;
 }
 
 .editor-view .editor {
-  text-align  : center;
-  padding-top : 40px;
+  //padding-top : 40px;
 }
 
 .editor-view .editor .edit-json {
-  background : white url(/images/black_paper.png) repeat center;
-  @include image-2x("/images/black_paper@2x.png", 400px, 400px);
+  // background : white url(/images/black_paper.png) repeat center;
+  // @include image-2x("/images/black_paper@2x.png", 400px, 400px);
+  background : $sol-sol-base03;
   border     : 6px solid $dark-blue;
   //@include box-shadow(0 1px 0 0 rgba($white, 0.8));
-  @include box-shadow(0 0px 1px 1px rgba($white, 0.3), inset 2px 2px 10px 1px  rgba($black, 0.9));
-  display    : inline-block;
+  @include box-shadow(0 0px 1px 1px rgba($white, 0.3), inset 2px 2px 10px 1px rgba($black, 0.9));
   font-size  : $editor-font-size;
   text-align : left;
   padding    : 30px 40px;
@@ -51,7 +50,8 @@ $json-indent : 30px;
 }
 
 .json-bracket {
-  color       : $yellow;
+  clear       : both;
+  color       : $sol-blue;
   display     : block;
   font-weight : bold;
   left        : -$json-indent;
@@ -69,77 +69,73 @@ $json-indent : 30px;
 }
 
 .editor-view .editor .edit-json ul li {
-  line-height: 30px;
+  line-height : 30px;
 }
 
+.editor-view .editor .edit-json ul li > div {
+  float: left;
+}
+
+.editor-view .editor .edit-json ul li > div::after {
+  content: ",";
+  display: inline-block;
+  color: $sol-orange;
+}
 .json-property {
-  
+
 }
 
 .editor-view .editor .edit-json ul li .key {
-    float: left;
+  color : $sol-yellow;
+  float : left;
 }
 
 .editor-view .editor .edit-json ul li .key::after {
   display : inline;
   content : ":";
   color   : $yellow;
-  padding: 0 10px;
+  padding : 0 10px;
 }
 
 .editor-view .editor .edit-json ul li .value {
-  display: block;
-  color  : $blue;
-  overflow: hidden;
+  display  : block;
+  color    : $sol-cyan;
+  overflow : hidden;
 }
 
 .editor-view .editor .edit-json ul li .value::after {
-  content: ', ';
-  color: $yellow;
+  content         : ', ';
+  color           : $yellow;
   text-decoration : none;
 }
 
+.editor-view .editor .edit-json ul li:last-child .value::after {
+  content: "";
+}
 .editor-view .editor .edit-json ul li .value input {
-  background      : none;
-  border          : none;
-  font-size       : $editor-font-size;
-  
+  background : none;
+  border     : none;
+  font-size  : $editor-font-size;
+
 }
 
 .editor-view .editor .edit-json ul li .value .editable {
-  font-weight     : 700;
-  color           : $blue;
-  outline         : none;
+  font-weight : 700;
+  outline     : none;
   &:hover,
   &:focus {
-    text-decoration: underline;
+    text-decoration : underline;
   }
 }
-.editor-view .editor .edit-json ul li .value .editable:hover,
-.editor-view .editor .edit-json ul li .value .editable:hover {
+
+.editor-view .editor .edit-json ul li .value .editable::before {
+  content: '"';
+}
+.editor-view .editor .edit-json ul li .value .editable::after {
+  content: '"';
+}
+
+// Arrays
+.editor-view .editor .edit-json ul li ol {
   
-}
-@mixin editor-placeholder {
-  color : adjust-lightness($blue, 25);
-  font-weight     : 500;
-  text-decoration : underline;
-}
-
-.editor-view .editor .edit-json ul li .value input::-webkit-input-placeholder {
-  @include editor-placeholder;
-}
-
-.editor-view .editor .edit-json ul li .value input:-moz-placeholder {
-  /* Firefox 18- */
-  @include editor-placeholder;
-
-}
-
-.editor-view .editor .edit-json ul li .value input::-moz-placeholder {
-  /* Firefox 19+ */
-  @include editor-placeholder;
-}
-
-.editor-view .editor .edit-json ul li .value input:-ms-input-placeholder {
-  @include editor-placeholder;
 }

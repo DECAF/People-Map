@@ -1,4 +1,4 @@
-require ['Cubist'], (Cubist) ->  
+require ['Cubist', './editor/Editor'], (Cubist, Editor) ->  
   cube = new Cubist document.getElementById('app')
   # generate map
   latlng = new google.maps.LatLng(52.52174, 13.38495)
@@ -44,9 +44,7 @@ require ['Cubist'], (Cubist) ->
       $map.css
         transform : 'none'
 
-
-
-
-
+  Editor.load 'editor.json'
+  
   cube.goto 1
 
