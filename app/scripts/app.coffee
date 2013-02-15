@@ -44,7 +44,7 @@ require ['Cubist', './editor/Editor'], (Cubist, Editor) ->
       $map.css
         transform : 'none'
 
-  Editor.load 'editor.json'
+  #Editor.load 'editor.json'
   
   cube.goto 1
 
