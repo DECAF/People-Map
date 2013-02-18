@@ -48,12 +48,14 @@ $json-indent : 30px;
 .editor-view .editor .edit-json > div .array-item > div + div > div:first-child {
   display : table;
 }
+
 .editor-view .editor .edit-json > div .array-item > div + div > div:first-child {
   padding-right : 20px;
-  position : relative;
-  z-index : 2;
+  position      : relative;
+  z-index       : 2;
 }
-  .editor-view .editor .edit-json > div .array-item {
+
+.editor-view .editor .edit-json > div .array-item {
 
 }
 
@@ -76,13 +78,12 @@ $json-indent : 30px;
 }
 
 .editor-view .editor .edit-json .value {
-  color       : $sol-cyan;
   display     : table-cell;
   font-family : 'Source Code Pro', sans-serif;
 }
 
 .editor-view .editor .edit-json .key span,
-.editor-view .editor .edit-json .value span {
+.editor-view .editor .edit-json .value input {
   display        : inline-block;
   margin-bottom  : 4px;
   padding        : 2px 10px;
@@ -102,10 +103,12 @@ $json-indent : 30px;
   font-style  : 30px;
 }
 
-.editor-view .editor .edit-json .value span {
+.editor-view .editor .edit-json .value input {
   background  : $sol-sol-base02;
   border      : 1px solid $sol-sol-base03;
   @include border-radius(30px);
+  color       : $sol-cyan;
+  font-size   : 24px;
   margin-left : 20px;
   outline     : none;
   &:hover {
@@ -145,7 +148,7 @@ $json-indent : 30px;
   position     : absolute;
   top          : 20px;
   @include transition(all 400ms);
-  z-index : 1 ;
+  z-index      : 1;
 }
 
 .editor-view .editor .edit-json .line:hover .location-actions {
@@ -154,29 +157,30 @@ $json-indent : 30px;
 
 .editor-view .editor .edit-json .line .location-actions ul {
   white-space : nowrap;
-  position : relative;
-  left: 10px;
+  position    : relative;
+  left        : 10px;
   @include transition(all 300ms);
   @include transition-timing-function($easeInQuart);
 }
+
 .editor-view .editor .edit-json .line:hover .location-actions ul {
-  left: 0;
+  left : 0;
 }
+
 .editor-view .editor .edit-json .line .location-actions ul li {
   display      : inline-block;
   margin-right : 10px;
 }
 
 .editor-view .editor .edit-json .line .location-actions a {
-  color  : $sol-green;
-  cursor : pointer;
+  color     : $sol-green;
+  cursor    : pointer;
   font-size : 30px;
   @include transition(all 100ms);
   &:hover {
     color : adjust-lightness($sol-green, 10);
   }
 }
-
 
 .editor-view .editor .edit-json .line .location-actions a.be-careful {
   color : $sol-red;

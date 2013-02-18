@@ -2,3 +2,5 @@ temp
 dist
 .idea
 .sass-cache
+node_modules
+.tmp

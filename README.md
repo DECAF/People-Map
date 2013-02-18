@@ -5,10 +5,10 @@ People-Map
 
 ### Install *Yeoman* 
 
-    $ curl -L get.yeoman.io | bash
+    $ npm install -g yo grunt-cli bower
     
 and follow the instructions on your console. Detailed informations can be found 
-[here](http://yeoman.io/installation.html)
+[here](https://github.com/yeoman/yeoman/wiki/Getting-started-with-1.0)
 
 ### Install *ceaser-easing*
 
@@ -23,10 +23,14 @@ An [awesome little framwork](https://github.com/jhardy/compass-ceaser-easing) to
     
 A [css animation extension](http://mikefowler.me/companimation/) for compass.
 
+### Install dependencies
+
+    $ npm install
+    $ bower install
 ## Develop
 
-    $ yeoman server
+    $ grunt server
     
 ## Build
 
-    $ yeoman build
+    $ grunt

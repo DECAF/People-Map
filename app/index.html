@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>
@@ -8,188 +8,73 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-
     <link rel="stylesheet" href="styles/main.css">
-
-    <script src="scripts/vendor/modernizr.min.js"></script>
-    <script type="text/javascript"
-            src="https://maps.google.com/maps/api/js?sensor=true"></script>
 </head>
-<body>
-<div id="app" class="cubist-stage">
-    <section class="page map-view">
-        <header>
-            <div>
-                <a href="#" class="close-menu-button _toggle-menu">
-                    <span data-icon="&#xe003;"></span>
-
-                    <h1 class="logo">People Map</h1>
-                </a>
-                <nav>
-                    <article>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In massa felis, ultrices vel
-                            ullamcorper
-                            sed, ornare a leo.</p>
-                    </article>
-                    <ul>
-                        <li><input type="text" placeholder="search location"></li>
-                        <li><a href="#" class="_open-editor"><span data-icon="&#xe000;"></span> add me</a></li>
-                    </ul>
-
-                </nav>
-                <footer>&copy; 2013 <a href="https://github.com/DECAF-/People-Map">DECAF</a></footer>
-            </div>
-            <a class="show-menu-button _toggle-menu" href="#"><span data-icon="&#xe001"></span></a>
-        </header>
-        <section class="map">
-            <div id="map-container"></div>
-        </section>
-    </section>
-    <section class="page editor-view">
-        <div>
-            <header>
-                <a href="#" class="_close-editor">
-                    <span data-icon="&#xe003;"></span>
-
-                    <h2>Edit your location</h2>
-                </a>
-            </header>
-            <section class="editor">
-                <div class="edit-json">
-                    <div>
-                        <div class="line">
-                            <div class="key">
-                                <span>Wir brauchen einen Namen: </span>
-                            </div>
-                            <div class="value">
-                                <span contenteditable="true">Dein Name</span>
-                            </div>
-                        </div>
-                        <div class="line">
-                            <div class="key">
-                                <span>Was willst du der Welt mitteilen: </span>
-                            </div>
-                            <div class="value">
-                                <span contenteditable="true">Hallo Welt</span>
-                            </div>
-                        </div>
-                        <div class="line">
-                            <div class="key">
-                                <span>Wo finden man dich?</span>
-                            </div>
-                            <div class="value">
-                                <span contenteditable="true">http://meineurl.de</span>
-                            </div>
-                        </div>
-                        <div class="line">
-                            <div class="key">
-                                <h3>Standort(e)
-                                    <a class="_new-location" title="Standort hinzufügen">
-                                        <span data-icon="&#xe004;"></span>
-                                    </a>
-                                </h3>
-                            </div>
-                            <div></div>
-                        </div>
-                        <div class="line array-item">
-                            <div class="key array-index">
-                                <span>1:</span>
-                            </div>
-                            <div>
-                                <div>
-                                    <div class="line">
-                                        <div class="key"><span>Längengrad:</span></div>
-                                        <div class="value"><span contenteditable="true">123</span></div>
-                                    </div>
-                                    <div class="line">
-                                        <div class="key"><span>Breitengrad:</span></div>
-                                        <div class="value"><span contenteditable="true">123</span></div>
-                                    </div>
-                                    <div class="line">
-                                        <div class="key"><span>Beschreibung:</span></div>
-                                        <div class="value"><span contenteditable="true">Standortbeschreibung</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="location-actions">
-                                    <ul>
-                                        <li>
-                                            <a class="_toggle-location-map" title="Standort auf Karte wählen">
-                                            <span data-icon="&#xe000;"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="be-careful _delete-location" title="Standort entfernen">
-                                                <span data-icon="&#xe006;"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="line array-item">
-                            <div class="key array-index"><span>2:</span></div>
-                            <div>
-                                <div>
-                                    <div class="line">
-                                        <div class="key"><span>Längengrad:</span></div>
-                                        <div class="value"><span contenteditable="true">123</span></div>
-                                    </div>
-                                    <div class="line">
-                                        <div class="key"><span>Breitengrad:</span></div>
-                                        <div class="value"><span contenteditable="true">123</span></div>
-                                    </div>
-                                    <div class="line">
-                                        <div class="key"><span>Beschreibung:</span></div>
-                                        <div class="value"><span contenteditable="true">Standortbeschreibung</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="location-actions">
-                                    <ul>
-                                        <li>
-                                            <a class="_toggle-location-map" title="Standort auf Karte wählen">
-                                                <span data-icon="&#xe000;"></span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="be-careful _delete-location" title="Standort entfernen">
-                                                <span data-icon="&#xe006;"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </section>
-</div>
-
+<body ng-app="peopleMap">
 <!--[if lt IE 7]>
-<p class="chromeframe">You are using an oudivated browser. <a href="http://browsehappy.com/">Upgrade your browser
+<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser
     today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better
     experience this site.</p>
 <![endif]-->
 
+<!--[if lt IE 9]>
+<script src="components/es5-shim/es5-shim.js"></script>
+<script src="components/json3/lib/json3.min.js"></script>
+<![endif]-->
+
 <!-- Add your site or application content here -->
 
-<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>-->
+<div id="app" class="cubist-stage" cubist>
+    <section class="page map-view" ng-include src="'/views/map.html'">
+    </section>
+    <section class="page editor-view" ng-include src="'/views/editor.html'" ng-controller="EditorCtrl">
+    </section>
+</div>
 
+<!-- build:js scripts/vendor.js -->
 
-<!-- build:js scripts/amd-app.js -->
-<script data-main="scripts/main" src="scripts/vendor/require.js"></script>
+<script src="components/jquery/jquery.js"></script>
+<script src="components/angular/angular.js"></script>
+<script src="components/angular-resource/angular-resource.js"></script>
+<script src="components/angular-cookies/angular-cookies.js"></script>
+<script src="components/angular-sanitize/angular-sanitize.js"></script>
+
+<script src="scripts/vendor/cubist.min.js"></script>
 <!-- endbuild -->
+
+<!-- build:js(.tmp) scripts/scripts.js -->
+<script src="scripts/controllers/_module.js"></script>
+<script src="scripts/services/_module.js"></script>
+<script src="scripts/directives/_module.js"></script>
+
+
+<script src="scripts/controllers/editor.js"></script>
+<script src="scripts/directives/cubist.js"></script>
+<script src="scripts/controllers/editor.js"></script>
+<script src="scripts/services/MapEntry.js"></script>
+
+<script src="scripts/app.js"></script>
+
+<script src="scripts/config/API.js"></script>
+<!-- endbuild -->
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    var _gaq = [
+        ['_setAccount', 'UA-XXXXX-X'],
+        ['_trackPageview']
+    ];
+    (function (d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s)
+    }(document, 'script'));
+</script>
 </body>
 </html>

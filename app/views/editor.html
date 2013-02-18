@@ -1,0 +1,125 @@
+<div>
+    <header>
+        <a ng-href="#/map" class="_close-editor">
+            <span data-icon="&#xe003;"></span>
+
+            <h2>Edit your location</h2>
+        </a>
+    </header>
+    <section class="editor">
+        <div class="edit-json">
+            <div>
+                <div class="line">
+                    <div class="key">
+                        <span>Wir brauchen einen Namen: </span>
+                    </div>
+                    <div class="value">
+                        <input type="text" ng-model="person.name" placeholder="Bitte einen Namen eintragen"/>
+                        <br>
+                        {{person.name}}
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="key">
+                        <span>Was willst du der Welt mitteilen: </span>
+                    </div>
+                    <div class="value">
+                        <span contenteditable="true">Hallo Welt</span>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="key">
+                        <span>Wo finden man dich?</span>
+                    </div>
+                    <div class="value">
+                        <span contenteditable="true">http://meineurl.de</span>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="key">
+                        <h3>Standort(e)
+                            <a class="_new-location" title="Standort hinzufügen">
+                                <span data-icon="&#xe004;"></span>
+                            </a>
+                        </h3>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                <div class="line array-item">
+                    <div class="key array-index">
+                        <span>1:</span>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="line">
+                                <div class="key"><span>Längengrad:</span></div>
+                                <div class="value"><span contenteditable="true">123</span></div>
+                            </div>
+                            <div class="line">
+                                <div class="key"><span>Breitengrad:</span></div>
+                                <div class="value"><span contenteditable="true">123</span></div>
+                            </div>
+                            <div class="line">
+                                <div class="key"><span>Beschreibung:</span></div>
+                                <div class="value"><span contenteditable="true">Standortbeschreibung</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location-actions">
+                            <ul>
+                                <li>
+                                    <a class="_toggle-location-map" title="Standort auf Karte wählen">
+                                        <span data-icon="&#xe000;"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="be-careful _delete-location" title="Standort entfernen">
+                                        <span data-icon="&#xe006;"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="line array-item">
+                    <div class="key array-index"><span>2:</span></div>
+                    <div>
+                        <div>
+                            <div class="line">
+                                <div class="key"><span>Längengrad:</span></div>
+                                <div class="value"><span contenteditable="true">123</span></div>
+                            </div>
+                            <div class="line">
+                                <div class="key"><span>Breitengrad:</span></div>
+                                <div class="value"><span contenteditable="true">123</span></div>
+                            </div>
+                            <div class="line">
+                                <div class="key"><span>Beschreibung:</span></div>
+                                <div class="value"><span contenteditable="true">Standortbeschreibung</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="location-actions">
+                            <ul>
+                                <li>
+                                    <a class="_toggle-location-map" title="Standort auf Karte wählen">
+                                        <span data-icon="&#xe000;"></span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="be-careful _delete-location" title="Standort entfernen">
+                                        <span data-icon="&#xe006;"></span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+        
+        
