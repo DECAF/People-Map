@@ -8,8 +8,12 @@
     </header>
     <section class="editor">
         <h3>1. Konfigurationsdatei erstellen</h3>
+
         <p>Im ersten Schritt muss eine Konfigurationsdatei erstellt werden. <br>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa ducimus enim, hic ipsam ipsum laboriosam molestiae omnis perspiciatis placeat quos repellat! Consequuntur deleniti dignissimos ipsa magni, nulla omnis quas.</p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa ducimus enim, hic ipsam ipsum
+            laboriosam molestiae omnis perspiciatis placeat quos repellat! Consequuntur deleniti dignissimos ipsa magni,
+            nulla omnis quas.</p>
+
         <div class="edit-json">
             <div>
                 <div class="line">
@@ -66,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="line">
-                                <div class="key"><label for="entry-desc-{{$index}}">Beschreibung:</label></div>        
+                                <div class="key"><label for="entry-desc-{{$index}}">Beschreibung:</label></div>
                                 <div class="value">
                                     <input id="entry-desc-{{$index}}" type="text" ng-model="location.description"/>
                                 </div>
@@ -80,7 +84,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="be-careful" title="Standort entfernen" 
+                                    <a class="be-careful" title="Standort entfernen"
                                        ng-click="onRemoveLocation($index)">
                                         <span data-icon="&#xe006;"></span>
                                     </a>
@@ -90,12 +94,37 @@
                     </div>
                 </div>
             </div>
+            <div class="editor-actions">
+                <ul>
+                    <li>
+                        <a href="#"
+                           ng-click="onUploadData()"
+                           title="Konfigurationsdatei laden">
+                            <span data-icon="&#xe007;"></span>
+                            <input type="file" class="json-upload" json-upload upload-target="$parent.entry"
+                                   accept=".json"
+                                    />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                           ng-click="onResetEditor()"
+                           title="Konfiguration zurücksetzen">
+                            <span data-icon="&#xe008;"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </div>
 
         <h3>2. Konfigurationsdatei herunterladen</h3>
+
         <p>Die Konfigurationsdatei kann jetzt heruntergeladen werden. <br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa ducimus enim, hic ipsam ipsum laboriosam molestiae omnis perspiciatis placeat quos repellat! Consequuntur deleniti dignissimos ipsa magni, nulla omnis quas.</p>
-        <div class="editor-actions">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa ducimus enim, hic ipsam ipsum
+            laboriosam molestiae omnis perspiciatis placeat quos repellat! Consequuntur deleniti dignissimos ipsa magni,
+            nulla omnis quas.</p>
+
+        <div class="editor-form">
             <a href="#" save-link='entry' target="_blank">Konfiguration herunterladen</a>
         </div>
     </section>

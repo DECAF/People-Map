@@ -29,20 +29,20 @@ $json-indent : 30px;
 
 .editor-view .editor {
   //padding-top : 40px;
-  padding-bottom: 40px;
+  padding-bottom : 40px;
 }
-
 
 .editor-view .editor h3 {
   font-size : 24px;
-  color: $sol-sol-base3;
-  margin: 20px 10px 15px;
+  color     : $sol-sol-base3;
+  margin    : 20px 10px 15px;
 }
 
 .editor-view .editor p {
-  color: $sol-sol-base1;
-  margin: 0 10px 15px;
+  color  : $sol-sol-base1;
+  margin : 0 10px 15px;
 }
+
 .editor-view .editor .edit-json {
   // background : white url(/images/black_paper.png) repeat center;
   // @include image-2x("/images/black_paper@2x.png", 400px, 400px);
@@ -53,7 +53,7 @@ $json-indent : 30px;
   font-size  : $editor-font-size;
   text-align : left;
   padding    : 30px 40px;
-
+  position   : relative;
 }
 
 .editor-view .editor .edit-json > div,
@@ -125,7 +125,7 @@ $json-indent : 30px;
   margin-left : 20px;
   outline     : none;
   padding     : 5px 20px 2px;
-  width : 400px;
+  width       : 600px;
   &:hover {
     box-shadow : 0 0 15px 0 rgba($sol-blue, 0.6);
   }
@@ -188,10 +188,10 @@ $json-indent : 30px;
 }
 
 .editor-view .editor .edit-json .line .location-actions a {
-  color     : $sol-green;
-  cursor    : pointer;
-  font-size : 30px;
-  text-decoration: none;
+  color           : $sol-green;
+  cursor          : pointer;
+  font-size       : 30px;
+  text-decoration : none;
   @include transition(all 100ms);
   &:hover {
     color : adjust-lightness($sol-green, 10);
@@ -209,20 +209,55 @@ $json-indent : 30px;
   display : block;
 }
 
-
-.editor-view .editor .editor-actions {
-  padding: 0 10px;
+.editor-view .editor .edit-json .editor-actions {
+  position : absolute;
+  top      : 10px;
+  right    : 10px;
 }
 
-.editor-view .editor .editor-actions a {
+.editor-view .editor .edit-json .editor-actions ul {
+  white-space : nowrap;
+}
+
+.editor-view .editor .edit-json .editor-actions ul li {
+  display : inline-block;
+}
+
+.editor-view .editor .edit-json .editor-actions ul li a {
+  color           : $sol-sol-base3;
+  display         : inline-block;
+  margin-right    : 10px;
+  overflow        : hidden;
+  position        : relative;
   text-decoration : none;
-  color: $blue;
-  background: $yellow;
-  font-size: 24px;
+}
+
+.editor-view .editor .edit-json .editor-actions ul li a span {
+  display : inline-block;
+}
+
+.editor-view .editor .edit-json .editor-actions ul li a input[type=file] {
+  font-size : 40px;
+  @include opacity(0);
+  position  : absolute;
+  right     : 0;
+  top       : 0;
+
+}
+
+.editor-view .editor .editor-form {
+  padding : 0 10px;
+}
+
+.editor-view .editor .editor-form a {
+  text-decoration : none;
+  color           : $blue;
+  background      : $yellow;
+  font-size       : 24px;
   @include border-radius(4px);
-  display: inline-block;
-  padding: 4px 5px;
+  display         : inline-block;
+  padding         : 4px 5px;
   &:hover {
-    color: adjust-lightness($blue, -10);
+    color : adjust-lightness($blue, -10);
   }
 }
