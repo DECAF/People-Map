@@ -37,6 +37,44 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/images/*.{png,jpg,jpeg}'
         ],
         tasks : ['livereload']
+      },
+      server: {
+        files : [
+          '<%= yeoman.app %>/scripts/**/*.coffee',
+          '<%= yeoman.app %>/styles/*.{scss,sass}',
+          '<%= yeoman.app %>/**/*.html',
+          '{.tmp,<%= yeoman.app %>}/styles/*.css',
+          '{.tmp,<%= yeoman.app %>}/scripts/*.js',
+          '<%= yeoman.app %>/images/*.{png,jpg,jpeg}'
+        ],
+        tasks: [
+          'coffee:dist',
+          'coffee:test',
+          'coffee:dist',
+          'livereload'
+        ]
+      },
+      dist : {
+        files : [
+          '<%= yeoman.app %>/scripts/**/*.coffee',
+          '<%= yeoman.app %>/styles/*.{scss,sass}',
+          '<%= yeoman.app %>/**/*.html',
+          '{.tmp,<%= yeoman.app %>}/styles/*.css',
+          '{.tmp,<%= yeoman.app %>}/scripts/*.js',
+          '<%= yeoman.app %>/images/*.{png,jpg,jpeg}'
+        ],
+        tasks : [
+          'coffee',
+          'compass:dist',
+          'useminPrepare',
+          'imagemin',
+          'cssmin',
+          'htmlmin',
+          'concat',
+   //       'uglify',
+          'copy',
+          'usemin'
+        ]
       }
     },
     connect       : {
@@ -103,7 +141,7 @@ module.exports = function (grunt) {
         expand : true,
         cwd    : '<%= yeoman.app %>/scripts/',
         src    : ['**/*.coffee'],
-        dest   : '.tmp/scripts/',
+        dest   : '<%= yeoman.dist %>/scripts/',
         ext    : '.js'
       },
       test : {
@@ -157,7 +195,7 @@ module.exports = function (grunt) {
         },
         options: {
           compress: false,
-          beautify: true
+          beautify: false
         }
       }
     },
@@ -256,7 +294,7 @@ module.exports = function (grunt) {
     'livereload-start',
     'connect:livereload',
     'open',
-    'watch'
+    'watch:server'
   ]);
 
   grunt.registerTask('test', [
@@ -267,6 +305,10 @@ module.exports = function (grunt) {
     'testacular'
   ]);
 
+  grunt.registerTask('distwatch', [
+    'build',
+    'watch:dist'
+  ]);
   grunt.registerTask('build', [
     'clean:dist',
     'jshint',

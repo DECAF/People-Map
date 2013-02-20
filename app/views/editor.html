@@ -7,38 +7,39 @@
         </a>
     </header>
     <section class="editor">
+        <h3>1. Konfigurationsdatei erstellen</h3>
+        <p>Im ersten Schritt muss eine Konfigurationsdatei erstellt werden. <br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa ducimus enim, hic ipsam ipsum laboriosam molestiae omnis perspiciatis placeat quos repellat! Consequuntur deleniti dignissimos ipsa magni, nulla omnis quas.</p>
         <div class="edit-json">
             <div>
                 <div class="line">
                     <div class="key">
-                        <span>Wir brauchen einen Namen: </span>
+                        <label for="entry-name">Wir brauchen einen Namen: </label>
                     </div>
                     <div class="value">
-                        <input type="text" ng-model="person.name" placeholder="Bitte einen Namen eintragen"/>
-                        <br>
-                        {{person.name}}
+                        <input id="entry-name" type="text" ng-model="entry.name"/>
                     </div>
                 </div>
                 <div class="line">
                     <div class="key">
-                        <span>Was willst du der Welt mitteilen: </span>
+                        <label for="entry-statement">Was willst du der Welt mitteilen: </label>
                     </div>
                     <div class="value">
-                        <span contenteditable="true">Hallo Welt</span>
+                        <input id="entry-statement" type="text" ng-model="entry.statement"/>
                     </div>
                 </div>
                 <div class="line">
                     <div class="key">
-                        <span>Wo finden man dich?</span>
+                        <label for="entry-url">Wo finden man dich?</label>
                     </div>
                     <div class="value">
-                        <span contenteditable="true">http://meineurl.de</span>
+                        <input id="entry-url" type="text" ng-model="entry.url"/>
                     </div>
                 </div>
                 <div class="line">
                     <div class="key">
                         <h3>Standort(e)
-                            <a class="_new-location" title="Standort hinzufügen">
+                            <a title="Standort hinzufügen" ng-click="onAddLocation()">
                                 <span data-icon="&#xe004;"></span>
                             </a>
                         </h3>
@@ -46,23 +47,28 @@
                     <div>
                     </div>
                 </div>
-                <div class="line array-item">
+                <div class="line array-item" ng-repeat="location in entry.locations">
                     <div class="key array-index">
-                        <span>1:</span>
+                        <span>{{$index + 1}}:</span>
                     </div>
                     <div>
                         <div>
                             <div class="line">
-                                <div class="key"><span>Längengrad:</span></div>
-                                <div class="value"><span contenteditable="true">123</span></div>
+                                <div class="key"><label for="entry-lat-{{$index}}">Längengrad:</label></div>
+                                <div class="value">
+                                    <input id="entry-lat-{{$index}}" type="text" ng-model="location.latitude"/>
+                                </div>
                             </div>
                             <div class="line">
-                                <div class="key"><span>Breitengrad:</span></div>
-                                <div class="value"><span contenteditable="true">123</span></div>
+                                <div class="key"><label for="entry-lng-{{$index}}">Breitengrad:</label></div>
+                                <div class="value">
+                                    <input id="entry-lng-{{$index}}" type="text" ng-model="location.longitude"/>
+                                </div>
                             </div>
                             <div class="line">
-                                <div class="key"><span>Beschreibung:</span></div>
-                                <div class="value"><span contenteditable="true">Standortbeschreibung</span>
+                                <div class="key"><label for="entry-desc-{{$index}}">Beschreibung:</label></div>        
+                                <div class="value">
+                                    <input id="entry-desc-{{$index}}" type="text" ng-model="location.description"/>
                                 </div>
                             </div>
                         </div>
@@ -74,41 +80,8 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="be-careful _delete-location" title="Standort entfernen">
-                                        <span data-icon="&#xe006;"></span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="line array-item">
-                    <div class="key array-index"><span>2:</span></div>
-                    <div>
-                        <div>
-                            <div class="line">
-                                <div class="key"><span>Längengrad:</span></div>
-                                <div class="value"><span contenteditable="true">123</span></div>
-                            </div>
-                            <div class="line">
-                                <div class="key"><span>Breitengrad:</span></div>
-                                <div class="value"><span contenteditable="true">123</span></div>
-                            </div>
-                            <div class="line">
-                                <div class="key"><span>Beschreibung:</span></div>
-                                <div class="value"><span contenteditable="true">Standortbeschreibung</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="location-actions">
-                            <ul>
-                                <li>
-                                    <a class="_toggle-location-map" title="Standort auf Karte wählen">
-                                        <span data-icon="&#xe000;"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="be-careful _delete-location" title="Standort entfernen">
+                                    <a class="be-careful" title="Standort entfernen" 
+                                       ng-click="onRemoveLocation($index)">
                                         <span data-icon="&#xe006;"></span>
                                     </a>
                                 </li>
@@ -117,6 +90,13 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <h3>2. Konfigurationsdatei herunterladen</h3>
+        <p>Die Konfigurationsdatei kann jetzt heruntergeladen werden. <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi culpa ducimus enim, hic ipsam ipsum laboriosam molestiae omnis perspiciatis placeat quos repellat! Consequuntur deleniti dignissimos ipsa magni, nulla omnis quas.</p>
+        <div class="editor-actions">
+            <a href="#" save-link='entry' target="_blank">Konfiguration herunterladen</a>
         </div>
     </section>
 
