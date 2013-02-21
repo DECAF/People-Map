@@ -14,9 +14,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Source+Code+Pro:200,300,400,500,600,700,900' rel='stylesheet' type='text/css'>
-
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Source+Code+Pro:200,300,400,500,600,700,900'
+          rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="styles/main.css">
+
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true"></script>
 </head>
 <body ng-app="peopleMap">
 <!--[if lt IE 7]>
@@ -51,6 +53,10 @@
 <!-- endbuild -->
 
 <!-- build:js(.tmp) scripts/scripts.js -->
+<script src="scripts/map/GeocodeResult.js"></script>
+<script src="scripts/map/google/Map.js"></script>
+<script src="scripts/map/google/Geocoder.js"></script>
+
 <script src="scripts/controllers/_module.js"></script>
 <script src="scripts/services/_module.js"></script>
 <script src="scripts/directives/_module.js"></script>
@@ -60,6 +66,7 @@
 <script src="scripts/directives/cubist.js"></script>
 <script src="scripts/directives/saveLink.js"></script>
 <script src="scripts/directives/jsonUpload.js"></script>
+<script src="scripts/directives/editorMap.js"></script>
 <script src="scripts/controllers/editor.js"></script>
 <script src="scripts/services/MapEntry.js"></script>
 

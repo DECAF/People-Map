@@ -94,6 +94,10 @@ $json-indent : 30px;
   font-family : 'Source Code Pro', sans-serif;
 }
 
+.editor-view .editor .edit-json .location-map .value {
+  display : block;
+}
+
 .editor-view .editor .edit-json .key span,
 .editor-view .editor .edit-json .key label,
 .editor-view .editor .edit-json .value input {
@@ -133,7 +137,7 @@ $json-indent : 30px;
     background : $sol-sol-base2;
     box-shadow : 0 0 20px 2px rgba($black, 0.8);
     color      : $sol-orange;
-    @include transform(scale(1.2, 1.2));
+    //@include transform(scale(1.2, 1.2));
   }
 }
 
@@ -154,6 +158,95 @@ $json-indent : 30px;
   }
 }
 
+.editor-view .location-editor {
+  position : relative;
+  @include transition(height 300ms ceaser($easeOutQuart));
+  height   : 160px;
+}
+
+.editor-view .location-editor.show {
+  height : 450px;
+}
+
+.editor-view .editor .edit-json .location-editor .location-form,
+.editor-view .editor .edit-json .location-editor .location-map {
+  position : relative;
+  @include transition(all 400ms ceaser($easeOutQuint));
+}
+
+.editor-view .editor .edit-json .location-editor .location-form {
+  z-index : 2;
+}
+
+.editor-view .editor .edit-json .location-editor.show .location-form {
+  @include transform(translate3d(-500px, 0, 0));
+  opacity : 0;
+  z-index : 1;
+}
+
+.editor-view .editor .edit-json .location-editor .location-map {
+  height       : 100%;
+  left         : 0;
+  opacity      : 0;
+  padding-left : 20px;
+  padding-top  : 80px;
+  position     : absolute;
+  top          : 0;
+  @include transform(translate3d(500px, 0, 0));
+  width        : 100%;
+  z-index      : 1;
+}
+
+.editor-view .editor .edit-json .location-editor.show .location-map {
+  opacity : 1;
+  @include transform(translate3d(0, 0, 0));
+}
+
+.editor-view .editor .edit-json .location-map .value {
+  left         : 0;
+  padding-left : 20px;
+  position     : absolute;
+  right        : 0;
+  top          : 20px;
+}
+
+.editor-view .editor .edit-json .location-map .value input {
+  margin : 0;
+  width  : 100%;
+}
+
+.editor-view .editor .edit-json .location-map .value .autocomplete {
+  left: 33px;
+  margin-top: -2px;
+  position : absolute;
+  right: 16px;
+  z-index  : 3;
+}
+
+.editor-view .editor .edit-json .location-map .value .autocomplete ul {
+
+}
+
+.editor-view .editor .edit-json .location-map .value .autocomplete ul li {
+  background : $sol-sol-base02;
+  display    : block;
+  padding-left : 9px;
+}
+
+.editor-view .editor .edit-json .location-map .value .autocomplete ul li + li {
+  border-top : $sol-sol-base03;
+}
+
+.editor-view .editor .edit-json .location-map .value .autocomplete ul li a {
+  color : $sol-cyan;
+  text-decoration : none;
+  font-size: 16px;
+}
+
+.editor-view .editor .edit-json .location-map .map-canvas {
+  height : 100%;
+}
+
 .editor-view .editor .edit-json .location-actions {
   border-left  : 4px solid $sol-sol-base02;
   bottom       : 0;
@@ -161,9 +254,14 @@ $json-indent : 30px;
   opacity      : 0;
   padding-left : 20px;
   position     : absolute;
-  top          : 20px;
+  top          : 0;
   @include transition(all 400ms);
   z-index      : 1;
+}
+
+.editor-view .editor .edit-json .location-map .location-actions {
+  border-left : none;
+  padding-top : 20px;
 }
 
 .editor-view .editor .edit-json .line:hover .location-actions {
@@ -178,8 +276,17 @@ $json-indent : 30px;
   @include transition-timing-function($easeInQuart);
 }
 
+.editor-view .editor .edit-json .line .location-map .location-actions ul,
+.editor-view .editor .edit-json .line:hover .location-map .location-actions ul {
+  left : 140px;
+}
+
 .editor-view .editor .edit-json .line:hover .location-actions ul {
   left : 0;
+}
+
+.editor-view .editor .edit-json .line .show .location-map .location-actions ul {
+  left : 20px;
 }
 
 .editor-view .editor .edit-json .line .location-actions ul li {

@@ -1,6 +1,7 @@
-temp
-dist
 .idea
-.sass-cache
 node_modules
+.sass-cache
+dist
 .tmp
+
+app/components

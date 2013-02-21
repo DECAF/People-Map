@@ -59,8 +59,8 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/scripts/**/*.coffee',
           '<%= yeoman.app %>/styles/*.{scss,sass}',
           '<%= yeoman.app %>/**/*.html',
-          '{.tmp,<%= yeoman.app %>}/styles/*.css',
-          '{.tmp,<%= yeoman.app %>}/scripts/*.js',
+          //'{.tmp,<%= yeoman.app %>}/styles/*.css',
+          //'{.tmp,<%= yeoman.app %>}/scripts/*.js',
           '<%= yeoman.app %>/images/*.{png,jpg,jpeg}'
         ],
         tasks : [

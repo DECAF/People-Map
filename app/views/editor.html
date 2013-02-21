@@ -1,6 +1,6 @@
 <div>
     <header>
-        <a ng-href="#/map" class="_close-editor">
+        <a ng-href="#!/map" class="_close-editor">
             <span data-icon="&#xe003;"></span>
 
             <h2>Edit your location</h2>
@@ -55,41 +55,71 @@
                     <div class="key array-index">
                         <span>{{$index + 1}}:</span>
                     </div>
-                    <div>
-                        <div>
-                            <div class="line">
-                                <div class="key"><label for="entry-lat-{{$index}}">Längengrad:</label></div>
-                                <div class="value">
-                                    <input id="entry-lat-{{$index}}" type="text" ng-model="location.latitude"/>
+                    <div class="location-editor show" ng-class="locationEditorState">
+                        <div class="location-form">
+                            <div>
+                                <div class="line">
+                                    <div class="key"><label for="entry-lat-{{$index}}">Längengrad:</label></div>
+                                    <div class="value">
+                                        <input id="entry-lat-{{$index}}" type="text" ng-model="location.latitude"/>
+                                    </div>
+                                </div>
+                                <div class="line">
+                                    <div class="key"><label for="entry-lng-{{$index}}">Breitengrad:</label></div>
+                                    <div class="value">
+                                        <input id="entry-lng-{{$index}}" type="text" ng-model="location.longitude"/>
+                                    </div>
+                                </div>
+                                <div class="line">
+                                    <div class="key"><label for="entry-desc-{{$index}}">Beschreibung:</label></div>
+                                    <div class="value">
+                                        <input id="entry-desc-{{$index}}" type="text" ng-model="location.description"/>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="line">
-                                <div class="key"><label for="entry-lng-{{$index}}">Breitengrad:</label></div>
-                                <div class="value">
-                                    <input id="entry-lng-{{$index}}" type="text" ng-model="location.longitude"/>
-                                </div>
-                            </div>
-                            <div class="line">
-                                <div class="key"><label for="entry-desc-{{$index}}">Beschreibung:</label></div>
-                                <div class="value">
-                                    <input id="entry-desc-{{$index}}" type="text" ng-model="location.description"/>
-                                </div>
+                            <div class="location-actions">
+                                <ul>
+                                    <li>
+                                        <a title="Standort auf Karte wählen"
+                                           ng-click="locationEditorState='show'">
+                                            <span data-icon="&#xe000;"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="be-careful" title="Standort entfernen"
+                                           ng-click="onRemoveLocation($index)">
+                                            <span data-icon="&#xe006;"></span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="location-actions">
-                            <ul>
-                                <li>
-                                    <a class="_toggle-location-map" title="Standort auf Karte wählen">
-                                        <span data-icon="&#xe000;"></span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="be-careful" title="Standort entfernen"
-                                       ng-click="onRemoveLocation($index)">
-                                        <span data-icon="&#xe006;"></span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="location-map" ng-init="mapSearchString='';searchResults=[]">
+                            <div class="value">
+                                <input type="text" ng-model="mapSearchString"/>
+                                <div class="autocomplete">
+                                    <ul>
+                                        <li ng-repeat="result in searchResults"><a href="#">{{result.getAddress()}}</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="map-canvas" 
+                                 editor-map 
+                                 location="location" 
+                                 map-search-string="mapSearchString"
+                                 search-results="searchResults">
+                                map loading
+                            </div>
+                            <div class="location-actions">
+                                <ul>
+                                    <li>
+                                        <a title="Kartenansicht schließen"
+                                           ng-click="locationEditorState=''">
+                                            <span data-icon="&#xe009;"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -98,12 +128,14 @@
                 <ul>
                     <li>
                         <a href="#"
-                           ng-click="onUploadData()"
                            title="Konfigurationsdatei laden">
                             <span data-icon="&#xe007;"></span>
-                            <input type="file" class="json-upload" json-upload upload-target="$parent.entry"
-                                   accept=".json"
-                                    />
+
+                            <input type="file" 
+                                   class="json-upload" 
+                                   json-upload 
+                                   upload-target="$parent.entry"
+                                   accept=".json"/>
                         </a>
                     </li>
                     <li>
