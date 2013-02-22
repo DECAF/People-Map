@@ -1,5 +1,5 @@
 class Geocoder
-  constructor : (@_$q, @_$scope)->
+  constructor : (@_$q, @_$scope, @_resultService)->
     @_geocoder = new google.maps.Geocoder
 
   geocode : (address) ->
@@ -8,12 +8,8 @@ class Geocoder
       request =
         address : address  
       @_geocoder.geocode request, (result) =>
-        if not @_$scope.$$phase
-          deferred.resolve @_getResultArray(result)
-          @_$scope.$digest()
-        else
-          @_$scope.$apply =>
-            deferred.resolve @_getResultArray(result)
+        deferred.resolve @_getResultArray(result)
+        @_$scope.$digest()
 
     else
       deferred.reject 'Please provide a search string'
@@ -23,8 +19,11 @@ class Geocoder
   _getResultArray : (googleResults) ->
     (for result in googleResults
       latLng = result.geometry.location
-      new GeocodeResult(result.formatted_address, latLng.lat(), latLng.lng())  
+      @_resultService.getResult(result.formatted_address, latLng.lat(), latLng.lng())
     )
 
 
-window.Geocoder = Geocoder
+angular.module('peopleMap.Map')
+  .factory 'GeocoderService', ['$q', '$rootScope', 'GeocodeResult', ($q, $rootScope, GeocodeResult) ->
+             new Geocoder $q, $rootScope, GeocodeResult
+           ]

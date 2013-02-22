@@ -1,13 +1,17 @@
 class GeocodeResult
-  constructor: (@_address, @_latitude, @_longitude) ->
-    
-  getAddress: ->
+  constructor : (@_address, @_latitude, @_longitude) ->
+
+  getAddress  : ->
     @_address
-  
-  getLatitude: ->
+
+  getLatitude : ->
     @_latitude
-  
-  getLongitude: ->
+
+  getLongitude : ->
     @_longitude
-  
-window.GeocodeResult = GeocodeResult
+
+angular.module('peopleMap.Map')
+  .factory 'GeocodeResult', [() ->
+             getResult : (address, latitude, longitude) ->
+               new GeocodeResult address, latitude, longitude
+           ]

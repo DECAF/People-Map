@@ -1,17 +1,17 @@
 'use strict'
 
-describe 'Controller: EditorCtrl', () ->
+describe 'Controller: EditorController', () ->
 
   # load the controller's module
   beforeEach module 'PeopleMapAngularApp'
 
-  EditorCtrl = {}
+  EditorController = {}
   scope = {}
 
   # Initialize the controller and a mock scope
   beforeEach inject ($controller) ->
     scope = {}
-    EditorCtrl = $controller 'EditorCtrl', {
+    EditorController = $controller 'EditorController', {
       $scope: scope
     }
 

@@ -55,7 +55,7 @@
                     <div class="key array-index">
                         <span>{{$index + 1}}:</span>
                     </div>
-                    <div class="location-editor show" ng-class="locationEditorState">
+                    <div class="location-editor" ng-class="locationEditorState" ng-init="locationEditorState='show'">
                         <div class="location-form">
                             <div>
                                 <div class="line">
@@ -94,18 +94,29 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="location-map" ng-init="mapSearchString='';searchResults=[]">
+                        <div class="location-map" 
+                             ng-controller="EditorMapController"
+                             ng-init="mapSearchString='';searchResults=[]">
                             <div class="value">
+
+                                <a class="current-position"
+                                   title="Aktuellen Standort ermitteln"
+                                   ng-click="getCurrentPosition()">
+                                    <span data-icon="&#xe00c;"></span>
+                                </a>
+
                                 <input type="text" ng-model="mapSearchString"/>
+
                                 <div class="autocomplete">
                                     <ul>
-                                        <li ng-repeat="result in searchResults"><a href="#">{{result.getAddress()}}</a></li>
+                                        <li ng-repeat="result in searchResults"><a href="#">{{result.getAddress()}}</a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="map-canvas" 
-                                 editor-map 
-                                 location="location" 
+                            <div class="map-canvas"
+                                 editor-map
+                                 location="location"
                                  map-search-string="mapSearchString"
                                  search-results="searchResults">
                                 map loading
@@ -116,6 +127,12 @@
                                         <a title="Kartenansicht schließen"
                                            ng-click="locationEditorState=''">
                                             <span data-icon="&#xe009;"></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a title="Koordinaten übernehmen"
+                                           ng-click="locationEditorState=''">
+                                            <span data-icon="&#xe00b;"></span>
                                         </a>
                                     </li>
                                 </ul>
@@ -131,9 +148,9 @@
                            title="Konfigurationsdatei laden">
                             <span data-icon="&#xe007;"></span>
 
-                            <input type="file" 
-                                   class="json-upload" 
-                                   json-upload 
+                            <input type="file"
+                                   class="json-upload"
+                                   json-upload
                                    upload-target="$parent.entry"
                                    accept=".json"/>
                         </a>

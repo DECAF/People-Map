@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: EditorCtrl', function () {
+describe('Controller: EditorController', function () {
 
   // load the controller's module
   beforeEach(module('PeopleMapAngularApp'));
 
-  var EditorCtrl,
+  var EditorController,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller) {
     scope = {};
-    EditorCtrl = $controller('EditorCtrl', {
+    EditorController = $controller('EditorController', {
       $scope: scope
     });
   }));

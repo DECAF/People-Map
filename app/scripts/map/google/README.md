@@ -16,7 +16,10 @@ If you plan to use google maps as a map provider, be sure you included the googl
 In the coffeescript build section of the html file, point to the google maps api `Map.js` and `Geocoder.js` files
 
     <!-- build:js(.tmp) scripts/scripts.js -->
-        <script src="scripts/map/google/Map.js"></script>
-        <script src="scripts/map/google/Geocoder.js"></script>
+        ...
+        
+        <script src="scripts/map/google/MapService.js"></script>
+        <script src="scripts/map/google/GeocoderService.js"></script>
+        
         ...
     <!-- endbuild -->

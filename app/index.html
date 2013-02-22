@@ -37,7 +37,7 @@
 <div id="app" class="cubist-stage" cubist>
     <section class="page map-view" ng-include src="'/views/map.html'">
     </section>
-    <section class="page editor-view" ng-include src="'/views/editor.html'" ng-controller="EditorCtrl">
+    <section class="page editor-view" ng-include src="'/views/editor.html'" ng-controller="EditorController">
     </section>
 </div>
 
@@ -53,22 +53,26 @@
 <!-- endbuild -->
 
 <!-- build:js(.tmp) scripts/scripts.js -->
+<script src="scripts/map/_module.js"></script>
+
 <script src="scripts/map/GeocodeResult.js"></script>
-<script src="scripts/map/google/Map.js"></script>
-<script src="scripts/map/google/Geocoder.js"></script>
+<script src="scripts/map/google/MapService.js"></script>
+<script src="scripts/map/google/GeocoderService.js"></script>
 
 <script src="scripts/controllers/_module.js"></script>
 <script src="scripts/services/_module.js"></script>
 <script src="scripts/directives/_module.js"></script>
 
 
-<script src="scripts/controllers/editor.js"></script>
+<script src="scripts/controllers/EditorController.js"></script>
+<script src="scripts/controllers/EditorMapController.js"></script>
 <script src="scripts/directives/cubist.js"></script>
 <script src="scripts/directives/saveLink.js"></script>
 <script src="scripts/directives/jsonUpload.js"></script>
 <script src="scripts/directives/editorMap.js"></script>
 <script src="scripts/controllers/editor.js"></script>
 <script src="scripts/services/MapEntry.js"></script>
+<script src="scripts/services/Geolocation.js"></script>
 
 <script src="scripts/app.js"></script>
 

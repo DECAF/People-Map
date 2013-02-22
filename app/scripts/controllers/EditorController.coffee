@@ -62,7 +62,7 @@ EditorController.LOCAL_STORAGE_KEY = 'map.editor.json'
 
 
 angular.module('peopleMap.controllers')
-  .controller 'EditorCtrl', ['$scope', 'MapEntry', ($scope, MapEntry) ->
+  .controller 'EditorController', ['$scope', 'MapEntry', ($scope, MapEntry) ->
                 editor = new EditorController $scope, MapEntry
                 editor.createModel()
               ]

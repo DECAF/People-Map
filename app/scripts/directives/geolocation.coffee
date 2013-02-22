@@ -1,23 +1,22 @@
 "use strict"
 
 angular.module("peopleMap.directives")
-  .directive "editorMap", ['GeocoderService', 'MapService', (GeocoderService, MapService) ->
+  .directive "geolocation", ['$q', '$rootScope', ($q, $rootScope) ->
                restrict : "A"
                scope    :
                  location        : '='
-                 mapSearchString : '='
-                 searchResults   : '='
 
                controller : ($scope, $element, $attrs) ->
+                 geocoder = new Geocoder $q, $rootScope
                  $scope.$watch 'mapSearchString', ->
                    if $scope.mapSearchString is ""
                      $scope.searchResults = []
                    else
-                     GeocoderService.geocode($scope.mapSearchString).then (results) ->
+                     geocoder.geocode($scope.mapSearchString).then (results) ->
                        $scope.searchResults = results
 
                link : ($scope, $element, $attrs) ->
-                 map = MapService.getMap $element.get(0)
+                 map = new Map $element.get(0)
 
                  $scope.$watch 'location', ->
                    map.setCenter $scope.location.latitude, $scope.location.longitude

@@ -33,4 +33,8 @@ Map.DEFAULT_LATITUDE = 0
 Map.DEFAULT_LONGITUDE = 0
 Map.DEFAULT_ZOOM = 8
 
-window.Map = Map
+angular.module('peopleMap.Map')
+  .factory 'MapService', ['$q', '$rootScope', ($q, $rootScope) ->
+             getMap : (el) ->
+               new Map el
+           ]
